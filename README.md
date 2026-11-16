@@ -1,3 +1,10 @@
+<!-- embryo-brand -->
+# Embryo Photo Edit
+
+**Embryo Photo Edit** is Embryo-Zero's fork of [TOAST UI Image Editor](https://github.com/nhn/tui.image-editor), made by Embryo Zero Backyard Data Center Corporation. Our changes are on the `embryo` branch; see [EMBRYO.md](EMBRYO.md), [LEGAL.md](LEGAL.md) and [CHANGES-EMBRYO.md](CHANGES-EMBRYO.md). The original project's README follows unchanged, with its authors' credits.
+
+---
+
 # ![Toast UI ImageEditor](https://user-images.githubusercontent.com/35218826/40895380-0b9f4cd6-67ea-11e8-982f-18121daa3a04.png)
 
 > Full featured image editor using HTML5 Canvas. It's easy to use and provides powerful filters.
