@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' blob: data:">
+<title>Embryo Photo Edit (based on TOAST UI Image Editor)</title>
+<link rel="icon" href="embryo-logo.png">
+<link rel="stylesheet" href="tui-color-picker.min.css">
+<link rel="stylesheet" href="tui-image-editor.min.css">
+<style>
+html,body{height:100%;margin:0;background:#151515}
+#editor{height:100%}
+.tui-image-editor-header-logo img{width:36px !important;height:36px !important;object-fit:contain}
+.tui-image-editor-header-logo{display:flex;align-items:center;gap:8px;padding:6px 10px}
+.tui-image-editor-header-logo::after{content:"Embryo Photo Edit";color:#ddd;font:600 15px system-ui,sans-serif}
+.tui-image-editor-container,.tui-image-editor-container *{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif !important}
+.embryo-credit{position:fixed;right:6px;bottom:4px;z-index:99999;font:11px system-ui,sans-serif;opacity:.55;background:rgba(255,255,255,.75);color:#333;padding:1px 6px;border-radius:6px}
+.embryo-credit a{color:inherit}
+</style>
+</head>
+<body>
+<div id="editor"></div>
+<div class="embryo-credit">Embryo Photo Edit · based on TOAST UI Image Editor (MIT) · <a href="https://github.com/embryo-zero/embryo-photo-edit" target="_blank" rel="noopener">source</a></div>
+<script src="tui-color-picker.min.js"></script>
+<script src="tui-image-editor.min.js"></script>
+<script src="black-theme.js"></script>
+<script>
+// Embryo Photo Edit (2026-11-16): our logo in the header, no usage statistics, nothing loaded from other sites
+var theme = Object.assign({}, blackTheme, {
+  "common.bi.image": "embryo-logo.png",
+  "common.backgroundColor": "#151515",
+  "header.backgroundImage": "none",
+  "header.backgroundColor": "#151515"
+});
+var editor = new tui.ImageEditor("#editor", {
+  includeUI: { theme: theme, menu: ["crop","flip","rotate","draw","shape","icon","text","mask","filter"], initMenu: "filter", menuBarPosition: "bottom", uiSize: { width: "100%", height: "100%" } },
+  cssMaxWidth: 1600, cssMaxHeight: 1000, usageStatistics: false
+});
+window.addEventListener("resize", function () { editor.ui.resizeEditor(); });
+</script>
+</body>
+</html>
